@@ -54,4 +54,4 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  password: <%= ENV['DRICONNECT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
