@@ -1,4 +1,4 @@
-class Category < ActiveHash::Base
+class DriverHistory < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '~1年' },
