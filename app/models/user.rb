@@ -6,6 +6,12 @@ class User < ApplicationRecord
   
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :sex
+  belongs_to :prefecture
+  belongs_to :car_size
+  belongs_to :driver_history
+
   validates :nickname, presence: true
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: "6文字以上、かつ半角英数を両方含む必要があります" }
   validates :birthday, presence: true
