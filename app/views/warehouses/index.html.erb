@@ -3,3 +3,12 @@
 <p class="TEST">
 Hello World!
 </p>
+
+<%= link_to '倉庫登録', new_warehouse_path, class: "sign-up" %>
+
+<% @warehouses.each do |w| %>
+  <li class = 'weare_house'>
+    <%= link_to w.w_name, warehouse_path(w.id),class: "" %>
+    <%= w.prefecture.name %>
+  </li>
+<% end %>

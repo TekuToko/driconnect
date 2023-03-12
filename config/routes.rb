@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root to: "warehouses#index"
 
   resources :users, only: [:show, :edit, :update, :destroy]
+  resources :warehouses, only: [:index, :new, :create, :show, :edit, :update]
 
 end

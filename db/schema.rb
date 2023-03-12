@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_11_091708) do
+ActiveRecord::Schema.define(version: 2023_03_12_090933) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 2023_03_11_091708) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "warehouses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "w_name", null: false
+    t.string "w_postnum"
+    t.integer "prefecture_id", null: false
+    t.string "w_address", null: false
+    t.string "phone"
+    t.time "w_start_time"
+    t.time "w_close_time"
+    t.integer "w_stock_type_id"
+    t.text "rule"
+    t.text "other"
   end
 
 end
