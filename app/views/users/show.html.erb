@@ -1,0 +1,32 @@
+<%= render "shared/header" %>
+
+<%# ユーザー情報 %>
+<div class="user-show">
+  <div class="user-box">
+    <h2 class="nickname">
+      <%= @user.nickname %>
+    </h2>
+
+    <% if user_signed_in? %>
+      <% if current_user.id == @user.id %>
+        <%= link_to "編集", edit_user_registration_path, method: :get, class: "item-red-btn" %>
+      <% end %>
+    <% end %>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">出品者</th>
+          <td class="detail-value"><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= @user.sex.name %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%# /ユーザー情報 %>
+
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
