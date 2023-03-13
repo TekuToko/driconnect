@@ -3,6 +3,7 @@ class WarehousesController < ApplicationController
 
   def index
     @warehouses = Warehouse.all
+    @arounds = Around.all
   end
 
   def new

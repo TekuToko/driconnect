@@ -12,3 +12,12 @@ Hello World!
     <%= w.prefecture.name %>
   </li>
 <% end %>
+
+<%= link_to '周辺登録', new_around_path, class: "sign-up"%>
+
+<% @arounds.each do |a| %>
+  <li class = 'weare_house'>
+    <%= link_to a.a_name, around_path(a.id),class: "" %>
+    <%= a.prefecture.name %>
+  </li>
+<% end %>

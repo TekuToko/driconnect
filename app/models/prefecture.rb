@@ -53,4 +53,6 @@ class Prefecture < ActiveHash::Base
   include ActiveHash::Associations
   has_many :users
   has_many :warehouses
+  has_many :arounds
+
 end

@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_12_090933) do
+ActiveRecord::Schema.define(version: 2023_03_13_134055) do
+
+  create_table "arounds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "a_name", null: false
+    t.string "a_postnum"
+    t.integer "prefecture_id", null: false
+    t.string "a_address", null: false
+    t.string "a_phone"
+    t.time "a_start_time"
+    t.time "a_close_time"
+    t.text "a_rule"
+    t.text "a_other"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
