@@ -121,4 +121,6 @@ Rails.application.configure do
     enable_starttls_auto: true
 }
 
+config.action_mailer.default_url_options = { host: 'https://dri-connect.onrender.com' } #本番環境で使用するドメインを記入
+
 end
