@@ -66,3 +66,5 @@ gem 'devise'
 gem 'active_hash'
 
 gem 'pry'
+
+gem "dotenv-rails"
