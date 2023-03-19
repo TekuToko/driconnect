@@ -18,10 +18,13 @@ class MonologsController < ApplicationController
 
   def show
     @monolog = Monolog.find(params[:id])
+    @comment = Comment.new
+    @comments = @monolog.comments.includes(:user)
   end
 
   def destroy
     monolog = Monolog.find(params[:id])
+    Comment.where(monolog_id: monolog.id).destroy_all
     if monolog.destroy
       redirect_to root_path
     else

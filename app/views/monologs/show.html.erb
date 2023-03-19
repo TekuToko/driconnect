@@ -7,3 +7,15 @@
   </li>
 
 <%= link_to '削除', monolog_path(@monolog.id), method: :delete %>
+
+<%= form_with(model: [@monolog, @comment], local: true) do |form| %>
+  <%= form.text_area :comment, placeholder: "コメントする", rows: "2" %>
+  <%= form.submit "SEND" %>
+<% end %>
+
+<p>
+  <% @comments.each do |c| %>
+    <strong><%= link_to c.user.nickname, "/users/#{c.user_id}" %>：</strong>
+    <%= c.comment %>
+  <% end %>
+</p>

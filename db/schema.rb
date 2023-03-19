@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_18_042628) do
+ActiveRecord::Schema.define(version: 2023_03_19_034043) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2023_03_18_042628) do
     t.time "a_close_time"
     t.text "a_rule"
     t.text "a_other"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "monolog_id", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["monolog_id"], name: "index_comments_on_monolog_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -109,5 +119,7 @@ ActiveRecord::Schema.define(version: 2023_03_18_042628) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "monologs"
+  add_foreign_key "comments", "users"
   add_foreign_key "monologs", "users"
 end
