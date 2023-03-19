@@ -17,5 +17,6 @@
   <% @comments.each do |c| %>
     <strong><%= link_to c.user.nickname, "/users/#{c.user_id}" %>：</strong>
     <%= c.comment %>
+    <%= link_to '削除', monolog_comment_path(@monolog, c), method: :delete %>
   <% end %>
 </p>

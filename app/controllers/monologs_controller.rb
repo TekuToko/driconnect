@@ -25,10 +25,15 @@ class MonologsController < ApplicationController
   def destroy
     monolog = Monolog.find(params[:id])
     Comment.where(monolog_id: monolog.id).destroy_all
-    if monolog.destroy
+    monolog.destroy
+  end
+
+  def destroy_comment
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
       redirect_to root_path
     else
-      render :show
+      redirect_to monolog_path(@comment.monolog), alert: 'コメントの削除に失敗しました'
     end
   end
 
