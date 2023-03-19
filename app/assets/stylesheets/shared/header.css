@@ -1,0 +1,27 @@
+.top-page-header{
+  height: 7%;
+  background-image: linear-gradient(to right, orange 30%, white 70%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  text-decoration: none; /* 下線を消す */
+  color: inherit; /* 色を親要素と同じにする */
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.header-list {
+  display: flex;
+  padding: 10px;
+}
+
+.header-list-btn{
+  padding: 10px;
+  text-decoration: none; /* 下線を消す */
+  color: orange; /* 色を親要素と同じにする */
+  font-weight: bolder;
+}

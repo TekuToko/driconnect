@@ -1,20 +1,21 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <div class='search-bar-contents'>
-    <%= link_to image_tag("logo.png", class:"logo"), "/" %>
-    <form class="search-form" action="#">
-      <input class='input-box' placeholder='キーワード倉庫を探す'>
-    </form>
-  </div>
-  <div class='nav'>
-    <ul class='lists-right'>
+  <%= link_to 'Dri-Connect', root_path, class: "logo" %>
+    <ul class='header-list'>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, user_path(current_user), method: :get, class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to current_user.nickname, user_path(current_user), method: :get, class: "header-list-btn" %></li>
+        <li><%= link_to 'LogOut', destroy_user_session_path, method: :delete, class: "header-list-btn" %></li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <li><%= link_to 'LogIn', new_user_session_path, class: "header-list-btn" %></li>
+        <li><%= link_to "Let's Join!", new_user_registration_path, class: "header-list-btn" %></li>
       <% end %>
     </ul>
-  </div>
 </header>
+
+<%# 
+<div class='search-bar-contents'>
+  <form class="search-form" action="#">
+    <input class='input-box' placeholder='キーワード倉庫を探す'>
+  </form>
+</div>
+ %>
