@@ -22,4 +22,13 @@ Hello World!
   </li>
 <% end %>
 
+<% @monologs.each do |m| %>
+  <li class='weare_house'>
+    <%= link_to m.monolog, monolog_path(m.id) %>
+    <%= link_to m.user.nickname ,user_path(m.user) %>
+  </li>
+<% end %>
+
 <%= link_to 'Contacts', new_contact_path %>
+
+<%= link_to 'Monologs', new_monolog_path %>

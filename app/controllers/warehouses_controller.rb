@@ -4,6 +4,8 @@ class WarehousesController < ApplicationController
   def index
     @warehouses = Warehouse.all
     @arounds = Around.all
+    @monologs = Monolog.all
+    @users = User.all
   end
 
   def new

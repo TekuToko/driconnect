@@ -11,6 +11,7 @@ class User < ApplicationRecord
   belongs_to :prefecture
   belongs_to :car_size
   belongs_to :driver_history
+  has_many :monologs
 
   validates :nickname, presence: true
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: '6文字以上、かつ半角英数を両方含む必要があります' }

@@ -1,0 +1,9 @@
+<%= render "shared/header" %>
+
+
+  <li class='weare_house'>
+    <%= @monolog.monolog %>
+    <%= link_to @monolog.user.nickname, user_path(@monolog.user) %>
+  </li>
+
+<%= link_to '削除', monolog_path(@monolog.id), method: :delete %>
