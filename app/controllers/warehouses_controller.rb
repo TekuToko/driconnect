@@ -2,9 +2,9 @@ class WarehousesController < ApplicationController
   before_action :set_warehouse, only: [:show, :edit, :update]
 
   def index
-    @warehouses = Warehouse.all
-    @arounds = Around.all
-    @monologs = Monolog.all
+    @warehouses = Warehouse.order(created_at: :desc)
+    @arounds = Around.order(created_at: :desc)
+    @monologs = Monolog.order(created_at: :desc)
     @users = User.all
   end
 

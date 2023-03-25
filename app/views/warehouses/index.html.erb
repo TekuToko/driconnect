@@ -1,34 +1,45 @@
 <%= render "shared/header" %>
 
-<p class="TEST">
-Hello World!
-</p>
+<div class ='office-message'>
+  <p>物流ドライバーのギルドにしたい&#x1F4AA;( •̀ ω •́ )</p>
+  <p>みなさまの情報提供とボヤキ、そして管理人の米粒根性で成り立つSNSです！　みなで物流盛り上げまっせ！</p>
+</div>
+
+<div class = 'other-page-information'>
+  <p>「ここ情報提供するよ！」「このコンビニはドライバーのオアシス！」「この機能を所望す！」&#x1F449; <%= link_to '情報提供', new_contact_path %></p>
+  <p>「待機時間暇だああああああああ」&#x1F449; <%= link_to 'ひとりごと', new_monolog_path %></p>
+</div>
+
+
+<div class ='home-body'>
+  <div class = "box warehouse">
+    <p class = 'box-title'>倉庫情報</p>
+    <% @warehouses.each do |w| %>
+      <li class = 'wearehouse-list'>
+        <%= link_to w.w_name, warehouse_path(w.id),class: "" %>
+        <span class="detail">@<%= w.prefecture.name %></span>
+      </li>
+    <% end %>
+  </div>
+  <div class = 'box around'>
+   <p class = 'box-title'>倉庫周辺情報</p> 
+    <% @arounds.each do |a| %>
+      <li class = 'around-list'>
+        <%= link_to a.a_name, around_path(a.id),class: "" %>
+        <span class="detail">@<%= a.prefecture.name %></span>
+      </li>
+    <% end %>
+  </div>
+  <div class ='box monolog'>
+   <p class = 'box-title'>ひとりごと</p>
+    <% @monologs.take(10).each do |m| %>
+      <li class='monolog'>
+        <%= link_to truncate(m.monolog, length: 15), monolog_path(m.id) %>
+        <span class="detail">by<%= link_to m.user.nickname ,user_path(m.user) %></span>
+      </li>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to '倉庫登録', new_warehouse_path, class: "sign-up" %>
-
-<% @warehouses.each do |w| %>
-  <li class = 'weare_house'>
-    <%= link_to w.w_name, warehouse_path(w.id),class: "" %>
-    <%= w.prefecture.name %>
-  </li>
-<% end %>
-
 <%= link_to '周辺登録', new_around_path, class: "sign-up"%>
-
-<% @arounds.each do |a| %>
-  <li class = 'weare_house'>
-    <%= link_to a.a_name, around_path(a.id),class: "" %>
-    <%= a.prefecture.name %>
-  </li>
-<% end %>
-
-<% @monologs.each do |m| %>
-  <li class='weare_house'>
-    <%= link_to m.monolog, monolog_path(m.id) %>
-    <%= link_to m.user.nickname ,user_path(m.user) %>
-  </li>
-<% end %>
-
-<%= link_to 'Contacts', new_contact_path %>
-
-<%= link_to 'Monologs', new_monolog_path %>

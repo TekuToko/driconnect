@@ -1,3 +1,53 @@
-.TEST{
-  color: red;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li{
+  list-style-type: none;
+}
+
+.office-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  white-space: pre-line;
+}
+
+.other-page-information{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  white-space: pre-line;
+  font-weight: bolder;
+  background-color: bisque;
+}
+
+.home-body{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  height: 50vh;
+}
+
+.box {
+  border: 1px solid black;
+  width: 30%;
+  padding: 10px;
+}
+
+.box-title{
+  font-weight: bold;
+  color: rgb(255, 157, 0);
+}
+
+.detail{
+  font-size: smaller;
+  color: darkgray;
 }
