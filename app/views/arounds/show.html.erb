@@ -1,6 +1,43 @@
 <%= render "shared/header" %>
 
-<%= @around.a_name %>
+<table>
+  <tr>
+    <th class='colum'>スポット名</th>
+    <td class='around_name'><%= @around.a_name %></td>
+  </tr>
+  <tr>
+    <th class='colum'>郵便番号</th>
+    <td><%= @around.a_postnum %></td>
+  </tr>
+    <tr>
+    <th class='colum'>都道府県</th>
+    <td><%= @around.prefecture.name %></td>
+  </tr>
+    <tr>
+    <th class='colum'>住所</th>
+    <td><%= @around.a_address %></td>
+  </tr>
+    <tr>
+    <th class='colum'>電話番号</th>
+    <td><%= @around.a_phone %></td>
+  </tr>
+    <tr>
+    <th class='colum'>開始時間</th>
+    <td><%= @around.a_start_time %></td>
+  </tr>
+  <tr>
+    <th class='colum'>終了時間</th>
+    <td><%= @around.a_close_time %></td>
+  </tr>
+  <tr>
+    <th class='colum'>ルール</th>
+    <td><%= @around.a_close_time %></td>
+  </tr>
+  <tr>
+    <th class='colum'>そのほか</th>
+    <td><%= @around.a_close_time %></td>
+  </tr>
+</table>
 
 <%= link_to '周辺情報編集', edit_around_path %>
 
