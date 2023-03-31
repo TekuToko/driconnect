@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_19_034043) do
+ActiveRecord::Schema.define(version: 2023_03_31_053107) do
 
   create_table "action_mailbox_inbound_emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -110,12 +110,12 @@ ActiveRecord::Schema.define(version: 2023_03_19_034043) do
     t.string "w_postnum"
     t.integer "prefecture_id", null: false
     t.string "w_address", null: false
-    t.string "phone"
+    t.string "w_phone"
     t.time "w_start_time"
     t.time "w_close_time"
     t.integer "w_stock_type_id"
-    t.text "rule"
-    t.text "other"
+    t.text "w_rule"
+    t.text "w_other"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -1,6 +1,49 @@
 <%= render "shared/header" %>
 
-<%= @warehouse.w_name %>
+
+<table>
+  <tr>
+    <th class='colum'>倉庫名</th>
+    <td class='warehouse_name'><%= @warehouse.w_name %></td>
+  </tr>
+  <tr>
+    <th class='colum'>郵便番号</th>
+    <td><%= @warehouse.w_postnum %></td>
+  </tr>
+    <tr>
+    <th class='colum'>都道府県</th>
+    <td><%= @warehouse.prefecture.name %></td>
+  </tr>
+    <tr>
+    <th class='colum'>住所</th>
+    <td><%= @warehouse.w_address %></td>
+  </tr>
+    <tr>
+    <th class='colum'>電話番号</th>
+    <td><%= @warehouse.w_phone %></td>
+  </tr>
+    <tr>
+    <th class='colum'>開始時間</th>
+    <td><%= @warehouse.w_start_time %></td>
+  </tr>
+  <tr>
+    <th class='colum'>終了時間</th>
+    <td><%= @warehouse.w_close_time %></td>
+  </tr>
+  <tr>
+    <th class='colum'>倉庫携帯</th>
+    <td><%= @warehouse.w_stock_type.name %></td>
+  </tr>
+  <tr>
+    <th class='colum'>ルール</th>
+    <td><%= @warehouse.w_close_time %></td>
+  </tr>
+  <tr>
+    <th class='colum'>そのほか</th>
+    <td><%= @warehouse.w_close_time %></td>
+  </tr>
+</table>
+
 
 <%= link_to '倉庫情報編集', edit_warehouse_path %>
 
