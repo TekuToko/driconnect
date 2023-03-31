@@ -1,27 +1,45 @@
 <%= render "shared/header" %>
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'registration-main' }) do |f| %>
+  <div class='form-wrap'>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <h1 class='form-header-text'>
+      ログイン
+    </h1>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <%= render 'shared/error_messages', model: f.object %>
+
+    <div class='form-group'>
+      <div class='form-group-text'>
+        <label class='column-name'>メールアドレス</label>
+        <span class='must'>必須</span>
+      </div>
+      <%= f.email_field :email, class:"input-default",autofocus: true, autocomplete: "email" %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class='form-group'>
+      <div class='form-group-text'>
+        <label class='column-name'>パスワード</label>
+        <span class='must'>必須</span>
+      </div>
+      <%= f.password_field :password, class:"input-default",autocomplete: "current-password" %>
+    </div>
+
+    <div class='form-group'>
+      <div class='form-group-text'>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <span>記憶しますか？</span>
+            <%= f.check_box :remember_me %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='register-btn'>
+      <%= f.submit "ログイン" ,class:"register-red-btn" %>
+    </div>
+
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+<% end %>
