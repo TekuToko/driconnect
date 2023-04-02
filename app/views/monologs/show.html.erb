@@ -9,23 +9,28 @@
       <pre>    by <%= link_to @monolog.user.nickname, user_path(@monolog.user), class: 'monolog-user' %></pre>
     </div>
   </li>
-
-  <%= link_to '削除', monolog_path(@monolog.id), method: :delete, class: 'delete' %>
-</div>
-
-<div class='comment'>
-  <%= form_with(model: [@monolog, @comment], local: true) do |form| %>
-    <%= form.text_area :comment, placeholder: "コメントする", rows: "2", class: "comment-text" %>
-    <%= form.submit "コメント投稿" %>
+  <% if user_signed_in? && (current_user == @monolog.user) %>
+    <%= link_to '削除', monolog_path(@monolog.id), method: :delete, class: 'delete' %>
   <% end %>
 </div>
+
+<% if user_signed_in? %>
+  <div class='comment'>
+    <%= form_with(model: [@monolog, @comment], local: true) do |form| %>
+      <%= form.text_area :comment, placeholder: "コメントする", rows: "2", class: "comment-text" %>
+      <%= form.submit "コメント投稿" %>
+    <% end %>
+  </div>
+<% end %>
 
 <div class='comment-show'>
   <% @comments.each do |c| %>
     <%= c.comment %>
     <div>
       <pre>    by <%= link_to c.user.nickname, "/users/#{c.user_id}", class: 'monolog-user' %></pre>
-      <%= link_to '削除', monolog_comment_path(@monolog, c), method: :delete %>
+      <% if user_signed_in? && (current_user == @comment.user) %>
+        <%= link_to '削除', monolog_comment_path(@monolog, c), method: :delete %>
+      <% end %>
     <div>
   <% end %>
 </div>

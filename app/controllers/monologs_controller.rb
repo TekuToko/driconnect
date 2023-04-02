@@ -1,4 +1,7 @@
 class MonologsController < ApplicationController
+
+  before_action :move_to_index, except: [:index, :show]
+
   def index
     @monologs = Monolog.all
   end
@@ -40,6 +43,12 @@ class MonologsController < ApplicationController
   private
   def monolog_params
     params.require(:monolog).permit(:monolog).merge(user: current_user)
+  end
+
+  def move_to_index
+    return if user_signed_in?
+
+    redirect_to new_user_session_path
   end
 
 end

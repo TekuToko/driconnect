@@ -1,8 +1,9 @@
+<%= render "shared/header" %>
+
 <h1>Monolog new</h1>
 
 <%= form_with model: @monolog, local: true do |f| %>
   <div>ひとりごと</div>
   <%= f.text_area :monolog, placeholder: "ひとりごと" %>
   <%= f.submit "投稿" %>
-
 <% end %>
