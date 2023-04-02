@@ -1,22 +1,31 @@
 <%= render "shared/header" %>
 
-
-  <li class='weare_house'>
-    <%= @monolog.monolog %>
-    <%= link_to @monolog.user.nickname, user_path(@monolog.user) %>
+<div class = 'monolog-show' >
+  <li class='monolog-main'>
+    <div class='monolog-main-text'>
+      <%= @monolog.monolog %>
+    </div>
+    <div class='monolog-main-user'>
+      <pre>    by <%= link_to @monolog.user.nickname, user_path(@monolog.user), class: 'monolog-user' %></pre>
+    </div>
   </li>
 
-<%= link_to '削除', monolog_path(@monolog.id), method: :delete %>
+  <%= link_to '削除', monolog_path(@monolog.id), method: :delete, class: 'delete' %>
+</div>
 
-<%= form_with(model: [@monolog, @comment], local: true) do |form| %>
-  <%= form.text_area :comment, placeholder: "コメントする", rows: "2" %>
-  <%= form.submit "SEND" %>
-<% end %>
-
-<p>
-  <% @comments.each do |c| %>
-    <strong><%= link_to c.user.nickname, "/users/#{c.user_id}" %>：</strong>
-    <%= c.comment %>
-    <%= link_to '削除', monolog_comment_path(@monolog, c), method: :delete %>
+<div class='comment'>
+  <%= form_with(model: [@monolog, @comment], local: true) do |form| %>
+    <%= form.text_area :comment, placeholder: "コメントする", rows: "2", class: "comment-text" %>
+    <%= form.submit "コメント投稿" %>
   <% end %>
-</p>
+</div>
+
+<div class='comment-show'>
+  <% @comments.each do |c| %>
+    <%= c.comment %>
+    <div>
+      <pre>    by <%= link_to c.user.nickname, "/users/#{c.user_id}", class: 'monolog-user' %></pre>
+      <%= link_to '削除', monolog_comment_path(@monolog, c), method: :delete %>
+    <div>
+  <% end %>
+</div>
